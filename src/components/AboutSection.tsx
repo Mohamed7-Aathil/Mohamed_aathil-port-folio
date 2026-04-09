@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Lightbulb, Rocket } from "lucide-react";
+import profileImg from "@/assets/Aathil.png";
 
 const AboutSection = () => {
   return (
@@ -27,8 +28,8 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl glass-card flex items-center justify-center neon-glow overflow-hidden">
-              <div className="text-8xl font-black gradient-text select-none">MA</div>
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl glass-card neon-glow overflow-hidden">
+              <img src={profileImg} alt="Mohamed Aathil K" className="w-full h-full object-cover" />
             </div>
           </motion.div>
 
