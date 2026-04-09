@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Download, Mail, FolderOpen, Camera } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import defaultProfile from "@/assets/Aathil.png";
 
 const roles = [
   "Full Stack Developer",
@@ -73,13 +74,7 @@ const HeroSection = () => {
             className="relative group"
           >
             <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-primary/50 neon-glow animate-glow-pulse">
-              {profileImage ? (
-                <img src={profileImage} alt="Mohamed Aathil K" className="w-full h-full object-cover" />
-              ) : (
-                <div className="w-full h-full bg-muted flex items-center justify-center text-4xl font-bold gradient-text">
-                  MA
-                </div>
-              )}
+              <img src={profileImage || defaultProfile} alt="Mohamed Aathil K" className="w-full h-full object-cover" />
             </div>
             <button
               onClick={() => fileInputRef.current?.click()}
