@@ -59,14 +59,6 @@ const ProjectsSection = () => (
                 </span>
               ))}
             </div>
-            <div className="flex gap-3">
-              <a href="#" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <Github size={16} /> GitHub
-              </a>
-              <a href="#" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <ExternalLink size={16} /> Live Demo
-              </a>
-            </div>
           </motion.div>
         ))}
       </div>
