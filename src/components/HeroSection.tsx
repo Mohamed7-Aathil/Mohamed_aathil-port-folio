@@ -121,7 +121,8 @@ const HeroSection = () => {
               <FolderOpen size={18} /> View Projects
             </a>
             <a
-              href="#"
+              href="/K_Mohamed_Aathil_Resume.pdf"
+              download
               className="px-6 py-3 rounded-lg border border-primary/50 text-foreground hover:bg-primary/10 transition-all duration-300 flex items-center gap-2 text-sm"
             >
               <Download size={18} /> Download Resume
