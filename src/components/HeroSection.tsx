@@ -74,7 +74,7 @@ const HeroSection = () => {
             className="relative group"
           >
             <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-primary/50 neon-glow animate-glow-pulse">
-              <img src={profileImage || defaultProfile} alt="Mohamed Aathil K" className="w-full h-full object-cover" />
+              <img src={profileImage || defaultProfile} alt="Mohamed Aathil K" className="w-full h-full object-cover object-top" />
             </div>
             <button
               onClick={() => fileInputRef.current?.click()}

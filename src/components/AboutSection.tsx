@@ -29,7 +29,7 @@ const AboutSection = () => {
             className="flex justify-center"
           >
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl glass-card neon-glow overflow-hidden">
-              <img src={profileImg} alt="Mohamed Aathil K" className="w-full h-full object-cover" />
+              <img src={profileImg} alt="Mohamed Aathil K" className="w-full h-full object-cover object-top" />
             </div>
           </motion.div>
 
