@@ -43,7 +43,7 @@ const ContactSection = () => {
               {[
                 { icon: Mail, label: "aathilm449@gmail.com", href: "mailto:aathilm449@gmail.com" },
                 { icon: Phone, label: "+91 9384262022", href: "tel:+919384262022" },
-                { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+                { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mohamed-aathil-k-8255b524b" },
                 { icon: Github, label: "GitHub", href: "https://github.com" },
               ].map((item, i) => (
                 <a
