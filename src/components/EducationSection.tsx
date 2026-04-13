@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Calendar } from "lucide-react";
 
 const education = [
   {
-    degree: "MCA",
+    degree: "Master of Computer Applications (MCA)",
     college: "M.A.M B-School, Trichy",
     cgpa: "7.85 / 10",
+    year: "2024 - 2026",
   },
   {
     degree: "B.Sc Computer Science",
     college: "Sadakathullah Appa College, Tirunelveli",
     cgpa: "7.05 / 10",
+    year: "2021 - 2024",
   },
 ];
 
@@ -30,31 +32,51 @@ const EducationSection = () => (
       </motion.div>
 
       <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-primary/20" />
+        {/* Vertical line with gradient */}
+        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
 
         {education.map((edu, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.2, duration: 0.5 }}
-            className={`relative flex items-start gap-6 mb-12 ${
+            transition={{ delay: i * 0.25, duration: 0.6, type: "spring", stiffness: 80 }}
+            className={`relative flex items-start gap-6 mb-14 ${
               i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
-            {/* Dot */}
-            <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary neon-glow z-10 mt-1" />
+            {/* Animated Dot */}
+            <motion.div
+              className="absolute left-6 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-primary z-10 mt-1"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.25 + 0.3, type: "spring", stiffness: 200 }}
+            >
+              <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20" />
+            </motion.div>
 
             {/* Card */}
             <div className={`ml-14 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"}`}>
-              <div className="glass-card p-6 hover:neon-glow transition-all duration-300">
-                <GraduationCap className="w-8 h-8 text-primary mb-3" />
+              <motion.div
+                whileHover={{ scale: 1.03, y: -4 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="glass-card p-6 hover:neon-glow transition-all duration-300 group"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <GraduationCap className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full">
+                    <Calendar size={12} />
+                    {edu.year}
+                  </div>
+                </div>
                 <h3 className="text-lg font-bold text-foreground">{edu.degree}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{edu.college}</p>
                 <p className="text-sm font-mono text-primary mt-2">CGPA: {edu.cgpa}</p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         ))}
