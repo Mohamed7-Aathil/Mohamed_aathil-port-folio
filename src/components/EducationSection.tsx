@@ -3,14 +3,14 @@ import { GraduationCap } from "lucide-react";
 
 const education = [
   {
-    degree: "B.Sc Computer Science",
-    college: "Sadakathullah Appa College, Tirunelveli",
-    cgpa: "7.05 / 10",
-  },
-  {
     degree: "MCA",
     college: "M.A.M B-School, Trichy",
     cgpa: "7.85 / 10",
+  },
+  {
+    degree: "B.Sc Computer Science",
+    college: "Sadakathullah Appa College, Tirunelveli",
+    cgpa: "7.05 / 10",
   },
 ];
 
