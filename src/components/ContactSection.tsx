@@ -7,11 +7,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:aathilm449@gmail.com?subject=${subject}&body=${body}`;
+    alert("Thank you for your message! I'll get back to you soon.");
     setForm({ name: "", email: "", message: "" });
   };
 
