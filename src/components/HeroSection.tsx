@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Download, Mail, FolderOpen, Camera } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
