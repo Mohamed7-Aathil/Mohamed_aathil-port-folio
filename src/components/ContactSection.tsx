@@ -40,7 +40,7 @@ const ContactSection = () => {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, label: "aathilm449@gmail.com", href: "mailto:aathilm449@gmail.com" },
+                { icon: Mail, label: "mohamedaathil.dev@gmail.com", href: "mailto:mohamedaathil.dev@gmail.com" },
                 { icon: Phone, label: "+91 9384262022", href: "tel:+919384262022" },
                 { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mohamed-aathil-k-8255b524b" },
                 { icon: Github, label: "GitHub", href: "https://github.com/Mohamed7-Aathil" },
