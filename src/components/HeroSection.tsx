@@ -17,6 +17,17 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [profileImage, setProfileImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [headingText, setHeadingText] = useState("");
+  const fullHeading = "Mohamed Aathil K";
+
+  useEffect(() => {
+    if (headingText.length < fullHeading.length) {
+      const timeout = setTimeout(() => {
+        setHeadingText(fullHeading.slice(0, headingText.length + 1));
+      }, 80);
+      return () => clearTimeout(timeout);
+    }
+  }, [headingText]);
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
