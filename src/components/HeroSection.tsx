@@ -109,7 +109,12 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-              Mohamed <span className="gradient-text">Aathil K</span>
+              {headingText.length <= 8 ? (
+                <>{headingText}<span className="typing-cursor"></span></>
+              ) : (
+                <>{headingText.slice(0, 8)}<span className="gradient-text">{headingText.slice(8)}</span><span className="typing-cursor"></span></>
+              )}
+              {headingText.length === fullHeading.length && <span className="typing-cursor" style={{ display: 'none' }}></span>}
             </h1>
             <div className="h-8 md:h-10 flex items-center justify-center">
               <span className="text-lg md:text-2xl text-muted-foreground font-mono typing-cursor">
