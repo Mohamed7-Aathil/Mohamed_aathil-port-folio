@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Code2, Lightbulb, Rocket } from "lucide-react";
-import profileImg from "@/assets/Aathil.png";
 
 const AboutSection = () => {
   return (
