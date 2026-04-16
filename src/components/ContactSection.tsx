@@ -45,18 +45,21 @@ const ContactSection = () => {
                 { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mohamed-aathil-k-8255b524b" },
                 { icon: Github, label: "GitHub", href: "https://github.com/Mohamed7-Aathil" },
               ].map((item, i) => (
-                <a
+                <motion.a
                   key={i}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 glass-card p-4 hover:neon-glow transition-all duration-300 group"
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <item.icon size={20} className="text-primary" />
                   </div>
                   <span className="text-foreground text-sm">{item.label}</span>
-                </a>
+                </motion.a>
               ))}
             </div>
           </motion.div>
@@ -67,7 +70,9 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-6 md:p-8 space-y-5"
+            whileHover={{ scale: 1.02, y: -4 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="glass-card p-6 md:p-8 space-y-5 hover:neon-glow"
           >
             {[
               { name: "name" as const, label: "Name", type: "text" },
