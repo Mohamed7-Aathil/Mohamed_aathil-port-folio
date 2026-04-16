@@ -19,21 +19,7 @@ const AboutSection = () => {
           <div className="w-20 h-1 mx-auto rounded-full bg-primary/50 mt-2" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-          {/* Left — avatar area */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center"
-          >
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl glass-card neon-glow overflow-hidden">
-              <img src={profileImg} alt="Mohamed Aathil K" className="w-full h-full object-cover object-top" />
-            </div>
-          </motion.div>
-
-          {/* Right — text */}
+        <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
