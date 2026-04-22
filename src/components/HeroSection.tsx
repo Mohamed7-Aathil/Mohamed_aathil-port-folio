@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Download, Mail, FolderOpen, Camera } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import defaultProfile from "@/assets/Aathil.png";
+import ParticleBackground from "./ParticleBackground";
 
 const roles = [
   "Full Stack Developer",
@@ -70,6 +71,9 @@ const HeroSection = () => {
         <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
       </div>
+
+      {/* Particle effect */}
+      <ParticleBackground />
 
       {/* Floating orbs */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-[100px] animate-float" />
