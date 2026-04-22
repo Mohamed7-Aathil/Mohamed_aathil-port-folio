@@ -73,8 +73,16 @@ const ProjectsSection = () => {
                 setSelected(project);
               }
             }}
-            className="glass-card neon-focus-ring p-6 flex flex-col group cursor-pointer hover:neon-glow transition-all duration-300"
+            className="glass-card neon-focus-ring relative p-6 flex flex-col group cursor-pointer hover:neon-glow transition-all duration-300 focus-visible:-translate-y-1"
           >
+            {project.abstract && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute top-3 right-3 flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-primary opacity-0 -translate-y-1 transition-all duration-200 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
+              >
+                <kbd className="font-sans">↵</kbd> Enter to open
+              </span>
+            )}
             <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <span className="text-2xl font-bold gradient-text">{i + 1}</span>
             </div>
