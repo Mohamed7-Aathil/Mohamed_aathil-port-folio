@@ -73,7 +73,7 @@ const ProjectsSection = () => {
                 setSelected(project);
               }
             }}
-            className="glass-card p-6 flex flex-col group cursor-pointer hover:neon-glow transition-shadow duration-300"
+            className="glass-card p-6 flex flex-col group cursor-pointer hover:neon-glow transition-shadow duration-300 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:neon-glow rounded-xl"
           >
             <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <span className="text-2xl font-bold gradient-text">{i + 1}</span>
