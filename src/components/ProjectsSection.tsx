@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -24,11 +26,23 @@ const projects = [
     title: "Smart Intern Management System (SIMS)",
     description: "Tracks interns, roles, payments, and dashboards for seamless management.",
     tech: ["React", "Django REST API"],
+    abstract: [
+      "Smart Intern Management System (SIMS) is a centralized web application designed to streamline the end-to-end management of interns within an organization. It eliminates manual tracking through spreadsheets and provides a single source of truth for intern data.",
+      "The platform handles intern onboarding, role assignment, attendance, task allocation, and performance monitoring. Administrators can manage stipend payments, generate offer and completion letters, and track each intern's progress through interactive dashboards.",
+      "Built with React on the frontend and Django REST Framework on the backend, SIMS offers role-based access for admins, mentors, and interns. Each user sees a tailored dashboard with relevant actions, notifications, and reports.",
+      "By automating repetitive HR tasks and centralizing communication, SIMS significantly reduces administrative overhead and improves transparency across the internship lifecycle.",
+    ],
   },
   {
     title: "Dynamic Timesheet Management System (DTMS)",
     description: "Tracks employee work hours, attendance, and project time allocation.",
     tech: ["React", "Vite", "Python", "Django"],
+    abstract: [
+      "Dynamic Timesheet Management System (DTMS) is an enterprise-grade web application that helps organizations accurately capture employee work hours, attendance, and project-wise time allocation in real time.",
+      "Employees can log daily tasks against assigned projects, while managers review, approve, or reject submissions through an intuitive approval workflow. The system supports flexible work schedules, leave tracking, and overtime calculations.",
+      "Powered by a React + Vite frontend and a Django backend, DTMS provides analytical dashboards with charts and exportable reports, helping leadership monitor productivity, billable hours, and resource utilization across teams.",
+      "With granular role-based permissions and audit logs, DTMS ensures data integrity and compliance, replacing scattered spreadsheets with a unified, scalable timesheet solution.",
+    ],
   },
 ] as Array<{
   title: string;
@@ -41,86 +55,81 @@ const ProjectsSection = () => {
   const [selected, setSelected] = useState<null | (typeof projects)[number]>(null);
 
   return (
-  <section id="projects" className="section-padding">
-    <div className="container mx-auto max-w-5xl">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-16"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">
-          My <span className="gradient-text">Projects</span>
-        </h2>
-        <div className="w-20 h-1 mx-auto rounded-full bg-primary/50 mt-2" />
-      </motion.div>
+    <section id="projects" className="section-padding">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            My <span className="gradient-text">Projects</span>
+          </h2>
+          <div className="w-20 h-1 mx-auto rounded-full bg-primary/50 mt-2" />
+        </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {projects.map((project, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.5 }}
-            whileHover={{ scale: 1.03, y: -5 }}
-            onClick={() => project.abstract && setSelected(project)}
-            role={project.abstract ? "button" : undefined}
-            tabIndex={project.abstract ? 0 : undefined}
-            onKeyDown={(e) => {
-              if (project.abstract && (e.key === "Enter" || e.key === " ")) {
-                e.preventDefault();
-                setSelected(project);
-              }
-            }}
-            className="glass-card neon-focus-ring relative p-6 flex flex-col group cursor-pointer hover:neon-glow transition-all duration-300 focus-visible:-translate-y-1"
-          >
-            {project.abstract && (
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute top-3 right-3 flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-primary opacity-0 -translate-y-1 transition-all duration-200 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
-              >
-                <kbd className="font-sans">↵</kbd> Enter to open
-              </span>
-            )}
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-              <span className="text-2xl font-bold gradient-text">{i + 1}</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
-            <p className="text-sm text-muted-foreground mb-4 flex-1">{project.description}</p>
-            <div className="flex flex-wrap gap-2 mb-5">
-              {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+        <div className="grid md:grid-cols-3 gap-6">
+          {projects.map((project, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.5 }}
+              whileHover={{ scale: 1.03, y: -5 }}
+              className="glass-card relative p-6 flex flex-col group hover:neon-glow transition-all duration-300"
+            >
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <span className="text-2xl font-bold gradient-text">{i + 1}</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
+              <p className="text-sm text-muted-foreground mb-4 flex-1">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {project.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              {project.abstract && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setSelected(project)}
+                  className="neon-focus-ring mt-auto w-full justify-between border-primary/40 bg-primary/5 text-primary hover:bg-primary/15 hover:text-primary hover:border-primary group/btn"
+                  aria-label={`See more details about ${project.title}`}
                 >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-
-    <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
-      <DialogContent className="glass-card max-w-2xl max-h-[85vh] overflow-y-auto border-primary/20">
-        <DialogHeader>
-          <DialogTitle className="text-2xl gradient-text">
-            {selected?.title}
-          </DialogTitle>
-          <DialogDescription className="text-sm uppercase tracking-wider text-primary/80 pt-1">
-            Abstract
-          </DialogDescription>
-        </DialogHeader>
-        <div className="space-y-4 pt-2 text-foreground/90 leading-relaxed">
-          {selected?.abstract?.map((para, idx) => (
-            <p key={idx}>{para}</p>
+                  See More Details
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                </Button>
+              )}
+            </motion.div>
           ))}
         </div>
-      </DialogContent>
-    </Dialog>
-  </section>
+      </div>
+
+      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+        <DialogContent className="glass-card max-w-2xl max-h-[85vh] overflow-y-auto border-primary/20">
+          <DialogHeader>
+            <DialogTitle className="text-2xl gradient-text">
+              {selected?.title}
+            </DialogTitle>
+            <DialogDescription className="text-sm uppercase tracking-wider text-primary/80 pt-1">
+              Abstract
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 pt-2 text-foreground/90 leading-relaxed">
+            {selected?.abstract?.map((para, idx) => (
+              <p key={idx}>{para}</p>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </section>
   );
 };
 
